@@ -1,0 +1,76 @@
+Package: TMBleR
+Title: Tumor Mutational Burden Quantification From Gene Panels And WES
+Version: 0.1.0
+Authors@R: c(
+ person("Alessandro", "Guida", email = "alessandro.guida@ieo.it", role = c("aut", "cre")),
+ person("Laura", "Fancello", email = "alessandro.guida@ieo.it", role = c("aut")),
+ person("Gianmaria", "Frige", role = c("ctb")),
+ person("Arnaud Gerard", "Michel", role = c("ctb")),
+ person("Gabriele", "Babini", role = c("ctb")),
+ person("Giovanni Luca", "Scaglione", role = c("ctb")),
+ person("Mario", "Zanfardino", role = c("ctb")),
+ person("Tommaso", "Mazz", role = c("ctb")),
+ person("Lorenzo", "Ferrando", role = c("ctb")),
+ person("Piergiuseppe ", "Pelicci", role = c("ctb")),
+ person("Luca", "Mazzarella", email = "luca.mazzarella@ieo.it", role = c("aut"))
+  )
+Maintainer: Alessandro Guida <alessandro.guida@ieo.it>
+Description: The TMBleR R package allows to calculate TMB from gene panels with
+    a custom combination of the most common parameters for variant filtering 
+    adopted in literature (removal of known cancer variants, filtering by VAF, etc).
+    It also allows to plot TMB distributions across several samples or based on
+    different set of filtering parameters, to calculate and plot the correlation 
+    between panel-based and WES-based TMB quantification, to simulate a gene panel 
+    performance by downsampling a WES dataset, to build ROC curves to evaluate TMB 
+    performance in predicting immunotherapy responders and to determine the optimal 
+    TMB cutoff for immunotherapy responders identification.
+Depends: R (>= 3.5.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+biocViews: Software
+Imports: 
+    dplyr, 
+    XML,
+    ggplot2, 
+    ggpubr,
+    stats, 
+    biomaRt, 
+    IRanges,
+    SummarizedExperiment,
+    BSgenome,
+    BSgenome.Hsapiens.UCSC.hg19, 
+    BSgenome.Hsapiens.UCSC.hg38, 
+    Biostrings,
+    GenomicRanges,
+    GenomeInfoDbData,
+    GenomeInfoDb, 
+    cutpointr,
+    TxDb.Hsapiens.UCSC.hg19.knownGene, 
+    TxDb.Hsapiens.UCSC.hg38.knownGene, 
+    VariantAnnotation (>= 1.30.1),
+    graphics,
+    utils,
+    methods,
+    e1071,
+    DT,
+    S4Vectors,
+    magick,
+    magrittr,
+    rlang,
+    caret,
+    pROC,
+    OptimalCutpoints,
+    purrr,
+    DelayedArray
+Suggests: 
+    knitr,
+    rmarkdown,
+    BiocStyle,
+    roxygen2,
+    covr,
+    testthat,
+    devtools,
+    pkgdown
+VignetteBuilder: knitr
+RoxygenNote: 7.1.0

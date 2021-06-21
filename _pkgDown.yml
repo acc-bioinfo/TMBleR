@@ -1,0 +1,44 @@
+title: TMBleR
+template:
+    params:
+    bootswatch: flatly
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - articles
+    - reference
+    - news
+    right:
+    - dockerhub
+    - gitlab 
+    - shiny
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    articles:
+      text: "Get Started"
+      menu:
+      - text: An introduction to TMBleR
+        href: articles/Introduction_to_TMBleR.html
+      - text: HOWTO_Import_external_data
+        href: articles/HOWTO_Import_external_data.html
+    dockerhub:
+      icon: "fab fa-docker fa-lg"
+      href: https://404.index
+      text: "docker hub"
+    gitlab:
+      icon: "fa fa-gitlab fa-lg"
+      href: https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool
+    shiny:
+      text: "shiny app"
+      icon: "fas fa-external-link-alt"
+      href: https://bioserver.ieo.it/shiny/app/tmbler

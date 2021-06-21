@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+tmp
+issue_tracker.md
+Output
+example_panel.bed
+Dockerfile
+data-raw
+.gitlab-ci.yml
+.dockerignore
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

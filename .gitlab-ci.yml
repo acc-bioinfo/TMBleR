@@ -1,0 +1,52 @@
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  # When using dind service we need to instruct docker, to talk with the
+  # daemon started inside of the service. The daemon is available with
+  # a network connection instead of the default /var/run/docker.sock socket.
+  #
+  # The 'docker' hostname is the alias of the service container as described at
+  # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services
+  #
+  # Note that if you're using Kubernetes executor, the variable should be set to
+  # tcp://localhost:2375 because of how Kubernetes executor connects services
+  # to the job container
+  DOCKER_HOST: tcp://docker:2375/
+  # When using dind, it's wise to use the overlayfs driver for
+  # improved performance.
+  DOCKER_DRIVER: overlay
+  #CONTAINER_TAG: registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:$CI_COMMIT_REF_SLUG
+  CONTAINER_TAG: registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:$CI_COMMIT_REF_NAME
+
+stages:
+  - build
+  - dockerize
+
+build:
+  stage: build
+  script:
+    - df -ih 
+    - docker build --pull -t test_image .
+    #- docker run --name TMBleR -d test_image /usr/local/bin/R -e "devtools::check()"
+  tags:
+    - garr
+    #- acc
+  except:
+    - master
+
+docker-build:
+  stage: dockerize
+  script:
+  #- docker build -t registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:$CI_COMMIT_REF_NAME .
+  - docker build -t $CONTAINER_TAG .
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  #- docker push registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:$CI_COMMIT_REF_NAME
+  - docker push $CONTAINER_TAG
+  - docker tag $CONTAINER_TAG registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest
+  - docker push registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest
+  only:
+    - master
+  tags:
+    - garr

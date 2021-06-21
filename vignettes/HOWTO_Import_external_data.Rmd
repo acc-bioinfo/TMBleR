@@ -1,0 +1,66 @@
+---
+title: "HOWTO_Import_external_data"
+date: "`r Sys.Date()`"
+#output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{HOW TO Import external data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instruction to generate a COSMIC dataset for filtering function of the TMBtool package
+
+
+COSMIC datasets can no longer be download without a registered account. Moreover their consistent size makes it more suitable as an external source to be downloaded seperately. Here we provide the instructure to download and format the file for usage with the TMBleR package. 
+
+Cosmic data is required for one of the mutation filters that removes known "cancer" mutation. This is achieved by setting ```remove.cancer = TRUE``` when calling ```applyFilter()```.  If you are planning to use the ```remove.cancer``` filter, please follow the intructions to retrieve the COSMIC data and import it into TMBleR. 
+
+
+### Download COSMIC database:
+
+* Login to COSMIC at [https://cancer.sanger.ac.uk/cosmic/download](https://cancer.sanger.ac.uk/cosmic/download)
+
+* Select as Genome Version from the menu GRCh37 or GRCh38, according to the reference genome used to generate the input VCF file
+
+* Download the ```CosmicCodingMuts.vcf.gz``` file, containing all coding COSMIC mutations.
+
+* Extract the .gz file:
+
+If genome GRCh37
+```bash
+gzcat CosmicCodingMuts.vcf.gz > CosmicCodingMuts_hg19.vcf
+```
+If genome GRCh38
+```bash
+gzcat CosmicCodingMuts.vcf.gz > CosmicCodingMuts_hg38.vcf
+```
+
+
+### Add dataset to TMBleR:
+
+* Put extracted file in the data-raw folder that you find within this package (path_To_PackageInstallation/data-raw)
+
+* Run the function ```readCOSMIC()``` to convert the COSMIC file from .vcf to .rda and load it into memory.
+
+```
+formatCOSMIC( input_file = "~/Downloads/CosmicCodingMuts.vcf"
+              , "hg19"
+              , output_file = "~/Downloads/COSMIC_hg19")
+```
+
+
+load the file into the memory using the ```load()``` function
+
+```
+load("~/Downloads/COSMIC_hg19")
+```
+
+COSMIC_hg19 should now appear in the environment ```ls()```.
+
+
+
