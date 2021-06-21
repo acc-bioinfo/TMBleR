@@ -1,0 +1,8 @@
+pandoc: 2.11.2
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  HOWTO_Import_external_data: HOWTO_Import_external_data.html
+  Introduction_to_TMBleR: Introduction_to_TMBleR.html
+last_built: 2021-06-21T18:43Z
+
