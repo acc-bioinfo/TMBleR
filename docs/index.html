@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">TMBleR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -82,15 +82,15 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://404.index">
+  <a href="https://hub.docker.com/repository/docker/aguida/tmbler">
     <span class="fab fa-docker fa-lg"></span>
      
     docker hub
   </a>
 </li>
 <li>
-  <a href="https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool">
-    <span class="fa fa fa fa-gitlab fa-lg"></span>
+  <a href="https://github.com/acc-bioinfo/TMBleR">
+    <span class="fa fa fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -114,38 +114,38 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<p>
+<p style="text-align: center;">
 <img src="logo.svg" width="100"></p>
 <div id="tumor-mutational-burden-tmb-quantification" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tumor-mutational-burden-tmb-quantification" class="anchor"></a>Tumor Mutational Burden (TMB) quantification</h1></div>
-<p><a href="https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool/-/commits/master"><img src="https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool/badges/master/pipeline.svg" alt="pipeline status"></a></p>
-<div id="installation" class="section level2">
+<p><strong>Estimate the Tumor Mutational Burden in genomics sequencing efforts like WES and genomic panels.</strong></p>
+<p style="text-align: center;">
+[ <a href="https://github.com/acc-bioinfo/TMBleR">Github</a> ] - [ <a href="https://acc-bioinfo.github.io/TMBleR/">Website</a> ] - [ <a href="https://hub.docker.com/repository/docker/aguida/tmbler">Docker Image</a> ] - [ <a href="https://bioserver.ieo.it/shiny/app/tmbler">Demo webapp</a> ]
+</p>
+<hr>
+<p>TMB has been proposed as a predictive biomarker for immunotherapy response in cancer patients, as it is thought to enrich for tumors with high neoantigen load. TMB assessed by Whole Exome Sequencing (WES) is considered the gold standard but remains confined to research settings. Targeted enrichment panels of various genomic sizes are emerging as a more sustainable methodology for assessing TMB in the clinical setting. However, panel-based sequencing inevitably leads to a nonrandom sampling of the total population of potential neoantigens. Thus, the choice of variant classes to be included in TMB calculation (e.g. synonymous mutations, mutations in cancer driver genes, low-allelic frequency mutations) may have a major impact on TMB quantification, its predictive power, and therefore its clinical utility. Significant efforts are being conducted to provide a standardized framework for TMB calculation. TMBleR allows to streamline the TMB estimation process, to precisely measure the impact of different variant filtering options on TMB quantification and, more importantly, on its predictive power, by using published datasets of immunotherapy-treated patients with available outcome data.</p>
+<p>We provide the community with a tool for maximizing the clinical impact of panel-based TMB measurement.</p>
+<hr>
+<div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>External dependencies</p>
+<a href="#getting-started" class="anchor"></a>Getting started</h2>
+<p>TMBleR is available in different formats.</p>
 <ul>
-<li>git lfs - <a href="https://git-lfs.github.com/">Install</a>
-</li>
-<li>ImageMagick <a href="https://imagemagick.org/script/download.php">Install</a>
-</li>
+<li>
+<strong>demo</strong>: If you only want to get a quick estimate of the TMB without having to install the software, have a look at the shiny web app available at the link <a href="https://bioserver.ieo.it/shiny/app/tmbler">https://bioserver.ieo.it/shiny/app/tmbler</a>. (<strong>Note</strong>, The app is not designed to support large computations with many samples).</li>
+<li>As a <strong>Docker image</strong> ( See “Using TMBleR with no installation”)</li>
+<li>As an <strong>R package</strong> (See “Install TMBleR as an R package”)</li>
 </ul>
-<p>Download the package with the git clone command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@gitlab.com:acc-bioinfo/Clinical_utility_toolkit/tmbtool.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># full all the large files</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
-<p>Initiate R and install the R package using devtools (devtools needs to be installed as well)</p>
-<pre class="{r}"><code><a href="https://devtools.r-lib.org/">library("devtools")
-devtools::install("TMBleR")</a></code></pre>
 </div>
-<div id="using-tmbler-without-installing-it" class="section level2">
+<div id="using-tmbler-with-no-installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#using-tmbler-without-installing-it" class="anchor"></a>Using TMBleR without installing it</h2>
-<p>TMBleR is also available as a docker container</p>
+<a href="#using-tmbler-with-no-installation" class="anchor"></a>Using TMBleR with no installation</h2>
+<p>TMBleR is available as a docker container. This is the simplest way to get TMBleR to run</p>
 <pre><code># Auth into the gitlab register
-docker login registry.gitlab.com
+docker login docker.io
 # Pull the latest docker image
-docker pull registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest
+docker pull aguida/tmbler:latest
 # Run the container on port 8787
 docker run \
     --name tmbler \
@@ -155,42 +155,33 @@ docker run \
     -e USERID=$UID \
     -p 8787:8787 \
     -v $(pwd)/workdir \
-    registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest</code></pre>
+    aguida/tmbler:latest</code></pre>
 <p>This will run a docker instance of TMBleR mounting your current directory into <code>/workdir</code> within the container, and opening port 8787 on your host machine, so that you can access RStudio interface through the browser by visiting <a href="http://localhost:8787" class="uri">http://localhost:8787</a> (username: your user, password: “helloworld”)</p>
 </div>
-<div id="repository-structure" class="section level2">
+<div id="install-tmbler-as-an-r-package" class="section level2">
 <h2 class="hasAnchor">
-<a href="#repository-structure" class="anchor"></a>Repository structure</h2>
+<a href="#install-tmbler-as-an-r-package" class="anchor"></a>Install TMBleR as an R package</h2>
+<p>Prerequisites. TMBleR requires the following dependencies to be installed on your system:</p>
 <ul>
-<li>
-<code>README.md</code> this file</li>
-<li>
-<code>R</code> - folder with code for functions</li>
-<li>
-<code>data</code> - folder with .rda objects containing COSMIC dataset or list of human tumor suppressor genes loaded by functions or containing datasets which can be easily be loaded in the examples of the vignette by the function “load”</li>
-<li>
-<code>data-raw</code>- folder with source files for .rda objects in data and with scripts used to generate them</li>
-<li>
-<code>ìnst/extdata</code> - folder containing VCF datasets and BED or TXT files for sequencing design which can be read in input in the examples of the vignette as raw data</li>
-<li>
-<code>Output</code>- folder containing output generated by the examples from the vignette</li>
-<li>
-<code>Vignettes</code>- folder containing the vignette</li>
-<li>
-<code>man</code>- folder containing .Rd files generated by roxygen2 with help for each function</li>
+<li>git lfs - <a href="https://git-lfs.github.com/">Install</a>
+</li>
+<li>ImageMagick <a href="https://imagemagick.org/script/download.php">Install</a>
+</li>
 </ul>
+<p>Download the package with the git clone command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:acc-bioinfo/TMBleR.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># full all the large files</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
+<p>Initiate R and install the R package using devtools (devtools needs to be installed as well)</p>
+<pre class="{r}"><code><a href="https://devtools.r-lib.org/">library("devtools")
+devtools::install("TMBleR")</a></code></pre>
 </div>
-<div id="input" class="section level2">
+<div id="usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#input" class="anchor"></a>Input</h2>
-<p>For TMB quantification</p>
+<a href="#usage" class="anchor"></a>Usage</h2>
+<p>To learn how to use TMBleR, please refer to the introductory vignette posted at this link:</p>
 <ul>
-<li>a VCF file containing somatic SNV calls (mandatory)</li>
-<li>a file describing sequencing design: either a BED file with genomic coordinates of the targeted regions or a TXT file with official symbols of targeted genes (one per line) (mandatory)</li>
-</ul>
-<p>For ROC curves of TMB performance in immunotherapy responders classification</p>
-<ul>
-<li>a dataframe containing TMB values (numeric vector, any name) and clinical response (factor with only the following two levels: ‘responder’, ‘nonresponder’; mandatory name: “ClinicalResponse” )</li>
+<li><a href="https://acc-bioinfo.github.io/TMBleR/articles/Introduction_to_TMBleR.html">https://acc-bioinfo.github.io/TMBleR/articles/Introduction_to_TMBleR.html</a></li>
 </ul>
 </div>
 </div>

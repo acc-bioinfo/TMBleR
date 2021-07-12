@@ -1,6 +1,6 @@
 Package: TMBleR
 Title: Tumor Mutational Burden Quantification From Gene Panels And WES
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
  person("Alessandro", "Guida", email = "alessandro.guida@ieo.it", role = c("aut", "cre")),
  person("Laura", "Fancello", email = "alessandro.guida@ieo.it", role = c("aut")),

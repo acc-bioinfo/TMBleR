@@ -1,0 +1,2 @@
+.bed filter=lfs diff=lfs merge=lfs -text
+inst/extdata/SureSelect_Human_All_Exon_V2_Regions.bed filter=lfs diff=lfs merge=lfs -text

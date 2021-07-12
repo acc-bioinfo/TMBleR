@@ -1,15 +1,61 @@
-<p><img src="logo.svg" width="100"></p>
+
+
+<p style="text-align: center;"><img src="logo.svg" width="100"></p>
 
 # Tumor Mutational Burden (TMB) quantification
 
-[![pipeline status](https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool/badges/master/pipeline.svg)](https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool/-/commits/master)
+**Estimate the Tumor Mutational Burden in genomics sequencing efforts like WES and genomic panels.** 
+
+ <p style="text-align: center;">[ [Github](https://github.com/acc-bioinfo/TMBleR) ] - [ [Website](https://acc-bioinfo.github.io/TMBleR/) ] - [ [Docker Image](https://hub.docker.com/repository/docker/aguida/tmbler) ] - [ [Demo webapp](https://bioserver.ieo.it/shiny/app/tmbler) ]
+</p>
+
+--- 
+
+TMB has been proposed as a predictive biomarker for immunotherapy response in cancer patients, as it is thought to enrich for tumors with high neoantigen load. TMB assessed by Whole Exome Sequencing (WES) is considered the gold standard but remains confined to research settings. Targeted enrichment panels of various genomic sizes are emerging as a more sustainable methodology for assessing TMB in the clinical setting. However, panel-based sequencing inevitably leads to a nonrandom sampling of the total population of potential neoantigens. Thus, the choice of variant classes to be included in TMB calculation (e.g. synonymous mutations, mutations in cancer driver genes, low-allelic frequency mutations) may have a major impact on TMB quantification, its predictive power, and therefore its clinical utility. Significant efforts are being conducted to provide a standardized framework for TMB calculation.
+TMBleR allows to streamline the TMB estimation process,  to precisely measure the impact of different variant filtering options on TMB quantification and, more importantly, on its predictive power, by using published datasets of immunotherapy-treated patients with available outcome data. 
+
+We provide the community with a tool for maximizing the clinical impact of panel-based TMB measurement. 
+
+---
+
+## Getting started
+
+TMBleR is available in different formats. 
+
+* **demo**: If you only want to get a quick estimate of the TMB without having to install the software, have a look at the shiny web app available at the link [https://bioserver.ieo.it/shiny/app/tmbler](https://bioserver.ieo.it/shiny/app/tmbler). (**Note**, The app is not designed to support large computations with many samples). 
+* As a **Docker image** ( See "Using TMBleR with no installation")
+* As an **R package** (See "Install TMBleR as an R package")
 
 
+## Using TMBleR with no installation
+
+TMBleR is available as a docker container. This is the simplest way to get TMBleR to run
+
+```
+# Auth into the gitlab register
+docker login docker.io
+# Pull the latest docker image
+docker pull aguida/tmbler:latest
+# Run the container on port 8787
+docker run \
+    --name tmbler \
+    --rm \
+    -e USER=$(whoami) \
+    -e PASSWORD=helloworld \
+    -e USERID=$UID \
+    -p 8787:8787 \
+    -v $(pwd)/workdir \
+    aguida/tmbler:latest
+```
+
+This will run a docker instance of TMBleR mounting your current directory into ```/workdir``` within the container, and 
+opening port 8787 on your host machine, so that you can access RStudio interface through the browser by visiting 
+http://localhost:8787 (username: your user, password: "helloworld")
 
 
-## Installation
-
-External dependencies
+## Install TMBleR as an R package
+ 
+Prerequisites. TMBleR requires the following dependencies to be installed on your system:
 
 * git lfs - [Install](https://git-lfs.github.com/)
 * ImageMagick [Install](https://imagemagick.org/script/download.php)
@@ -17,7 +63,7 @@ External dependencies
 Download the package with the git clone command:
 
 ```bash
-git clone git@gitlab.com:acc-bioinfo/Clinical_utility_toolkit/tmbtool.git
+git clone git@github.com:acc-bioinfo/TMBleR.git
 # full all the large files
 git lfs pull
 ```
@@ -29,59 +75,11 @@ library("devtools")
 devtools::install("TMBleR")
 ```
 
-## Using TMBleR without installing it
 
-TMBleR is also available as a docker container
+## Usage
 
-```
-# Auth into the gitlab register
-docker login registry.gitlab.com
-# Pull the latest docker image
-docker pull registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest
-# Run the container on port 8787
-docker run \
-    --name tmbler \
-    --rm \
-    -e USER=$(whoami) \
-    -e PASSWORD=helloworld \
-    -e USERID=$UID \
-    -p 8787:8787 \
-    -v $(pwd)/workdir \
-    registry.gitlab.com/acc-bioinfo/clinical_utility_toolkit/tmbtool:latest
-```
+To learn how to use TMBleR, please refer to the introductory vignette posted at this link: 
 
-This will run a docker instance of TMBleR mounting your current directory into ```/workdir``` within the container, and 
-opening port 8787 on your host machine, so that you can access RStudio interface through the browser by visiting 
-http://localhost:8787 (username: your user, password: "helloworld")
-
-
-## Repository structure
-* ```README.md``` this file
-* ```R``` - folder with code for functions
-* ```data``` - folder with .rda objects containing COSMIC dataset or list of 
- human tumor suppressor genes loaded by functions or containing datasets which
- can be easily be loaded in the examples of the vignette by the function "load"
-* ```data-raw```- folder with source files for .rda objects in data and with 
-scripts used to generate them 
-* ```ìnst/extdata``` - folder containing VCF datasets and BED or TXT files for
-sequencing design which can be read in input in the examples of the vignette as
-raw data
-* ```Output```- folder containing output generated by the examples from the 
-vignette
-* ```Vignettes```- folder containing the vignette
-* ```man```- folder containing .Rd files generated by roxygen2 with help for each 
-function
-
-## Input
-For TMB quantification
-* a VCF file containing somatic SNV calls (mandatory)
-* a file describing sequencing design: either a BED file with genomic coordinates 
-of the targeted regions or a TXT file with official symbols of targeted genes (one 
-per line) (mandatory)
-
-For ROC curves of TMB performance in immunotherapy responders classification
-* a dataframe containing TMB values (numeric vector, any name) and clinical response 
-(factor with only the following two levels: 'responder', 'nonresponder'; mandatory 
-name: "ClinicalResponse" )
+* [https://acc-bioinfo.github.io/TMBleR/articles/Introduction_to_TMBleR.html](https://acc-bioinfo.github.io/TMBleR/articles/Introduction_to_TMBleR.html)
 
 

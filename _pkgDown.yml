@@ -12,7 +12,7 @@ navbar:
     - news
     right:
     - dockerhub
-    - gitlab 
+    - github 
     - shiny
   components:
     home:
@@ -33,11 +33,11 @@ navbar:
         href: articles/HOWTO_Import_external_data.html
     dockerhub:
       icon: "fab fa-docker fa-lg"
-      href: https://404.index
+      href: https://hub.docker.com/repository/docker/aguida/tmbler
       text: "docker hub"
-    gitlab:
-      icon: "fa fa-gitlab fa-lg"
-      href: https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool
+    github:
+      icon: "fa fa-github fa-lg"
+      href: https://github.com/acc-bioinfo/TMBleR
     shiny:
       text: "shiny app"
       icon: "fas fa-external-link-alt"

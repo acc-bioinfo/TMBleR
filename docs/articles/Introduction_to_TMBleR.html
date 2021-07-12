@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">TMBleR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -74,15 +74,15 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://404.index">
+  <a href="https://hub.docker.com/repository/docker/aguida/tmbler">
     <span class="fab fa-docker fa-lg"></span>
      
     docker hub
   </a>
 </li>
 <li>
-  <a href="https://gitlab.com/acc-bioinfo/Clinical_utility_toolkit/tmbtool">
-    <span class="fa fa fa fa-gitlab fa-lg"></span>
+  <a href="https://github.com/acc-bioinfo/TMBleR">
+    <span class="fa fa fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -112,7 +112,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>An introduction to TMBleR</h1>
             
-            <h4 class="date">2021-06-21</h4>
+            <h4 class="date">2021-07-12</h4>
       
       
       <div class="hidden name"><code>Introduction_to_TMBleR.Rmd</code></div>
@@ -392,8 +392,8 @@ text-align: justify}
 
 <span class="co"># Print results in table format</span>
 <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">TMB_res</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-68abc20c5d0ed70902fa" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-68abc20c5d0ed70902fa">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild"],["ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMutsNosynonymous","vaf=0NoCancerMutsNosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05","vaf=0.05","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMutsNosynonymous","vaf=0.05NoCancerMutsNosynonymous","vaf=0","vaf=0"],[1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301],[189,182,98,97,104,105,45,84,78,164,73,149,41,76,203,198],[101.54,97.78,52.65,52.11,55.87,56.41,24.18,45.13,41.91,88.11,39.22,80.05,22.03,40.83,109.06,106.38]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The TMB estimate results can be preview in different ways:</p>
+<div id="htmlwidget-e4a81950b21206013785" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e4a81950b21206013785">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild"],["ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMutsNosynonymous","vaf=0NoCancerMutsNosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05","vaf=0.05","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMutsNosynonymous","vaf=0.05NoCancerMutsNosynonymous","vaf=0","vaf=0"],[1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301],[189,182,98,97,104,105,45,84,78,164,73,149,41,76,203,198],[101.54,97.78,52.65,52.11,55.87,56.41,24.18,45.13,41.91,88.11,39.22,80.05,22.03,40.83,109.06,106.38]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The TMB estimate results can be preview in different ways:</p>
 <ul>
 <li>Classical barplot</li>
 </ul>
@@ -668,8 +668,8 @@ text-align: justify}
 
 <span class="co"># Preview</span>
 <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">TMB_res_df</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-546677a3b83b28ec6884" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-546677a3b83b28ec6884">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06"],["SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","WES","WES","WES","WES"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous"],[2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,46.401091,46.401091,46.401091,46.401091],[18,29,26,12,15,19,21,9,9,19,12,7,9,12,11,5,203,332,316,136],[6.6,10.63,9.53,4.4,5.5,6.97,7.7,3.3,2.94,6.2,3.91,2.28,2.94,3.91,3.59,1.63,4.37,7.16,6.81,2.93]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The same bar plot as before can now be printed all together into one single plot calling the very same fuction.</p>
+<div id="htmlwidget-3c0cf9fedd6caf688c69" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c0cf9fedd6caf688c69">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06"],["SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","WES","WES","WES","WES"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous"],[2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,46.401091,46.401091,46.401091,46.401091],[18,29,26,12,15,19,21,9,9,19,12,7,9,12,11,5,203,332,316,136],[6.6,10.63,9.53,4.4,5.5,6.97,7.7,3.3,2.94,6.2,3.91,2.28,2.94,3.91,3.59,1.63,4.37,7.16,6.81,2.93]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The same bar plot as before can now be printed all together into one single plot calling the very same fuction.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotTMB.html">plotTMB</a></span><span class="op">(</span><span class="va">TMB_res_df</span><span class="op">)</span></code></pre></div>
 <p><img src="Introduction_to_TMBleR_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
@@ -975,7 +975,7 @@ text-align: justify}
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] purrr_0.3.4      TMBleR_0.1.0     testthat_2.3.2   devtools_2.3.0  </span>
+<span class="co">#&gt; [1] purrr_0.3.4      TMBleR_0.1.1     testthat_2.3.2   devtools_2.3.0  </span>
 <span class="co">#&gt; [5] usethis_1.6.1    BiocStyle_2.12.0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
