@@ -20,8 +20,8 @@
 #FROM rocker/tidyverse
 FROM rocker/rstudio:latest
 
-COPY . /usr/local/src/myscripts
-WORKDIR /usr/local/src/myscripts
+COPY . /usr/local/src/tmbler
+WORKDIR /usr/local/src/tmbler
 
 RUN apt-get update
 

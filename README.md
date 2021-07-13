@@ -1,6 +1,6 @@
 
 
-<p style="text-align: center;"><img src="logo.svg" width="100"></p>
+<p style="text-align: center;"><img src="logo.svg" width="150"></p>
 
 # Tumor Mutational Burden (TMB) quantification
 
@@ -51,6 +51,8 @@ docker run \
 This will run a docker instance of TMBleR mounting your current directory into ```/workdir``` within the container, and 
 opening port 8787 on your host machine, so that you can access RStudio interface through the browser by visiting 
 http://localhost:8787 (username: your user, password: "helloworld")
+
+**Note:** By default the docker container will be initialized in the folder `/home/<yourusername`. Use the Rstudio file manager to open `/workdir` or any other mounted folder of your choice. 
 
 
 ## Install TMBleR as an R package

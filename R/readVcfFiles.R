@@ -52,7 +52,12 @@ readVcfFiles <- function(vcfFiles, assembly){
     
     ## VCF VALIDATOR ----------------------------------------------------------
     ## validate each vcf file
-    lapply(vcfFiles, .validate_vcf, check_genotype=FALSE, AF_softcheck=TRUE)
+    validator_check <<- lapply(vcfFiles, .validate_vcf, check_genotype=FALSE, AF_softcheck=TRUE)
+    
+    message("Validate VCF input:")
+    print(validator_check)
+    
+    message("Warnings and Errors exported to 'validator_check' variable")
     
     ## Read vcf files ----------------------------------------------------------
     vcfs <- lapply(vcfFiles, VariantAnnotation::readVcf, assembly)
@@ -60,6 +65,10 @@ readVcfFiles <- function(vcfFiles, assembly){
     
     # Vcf post processing
     for (i in seq_along(vcfs)) {
+        
+        rows_before <- dim(vcfs[[1]])[1]  # remember how many rows we had before making any change
+        chr_before <- GenomeInfoDb::seqlevels(vcfs[[1]])
+        
         # Set UCSC style
         GenomeInfoDb::seqlevelsStyle(vcfs[[i]]) <- "UCSC"
         # Filter chromosome names not matching.
@@ -68,6 +77,18 @@ readVcfFiles <- function(vcfFiles, assembly){
                      "chr15", "chr16", "chr17", "chr18", "chr19", "chr20",
                      "chr21", "chr22", "chrX", "chrY")
         GenomeInfoDb::seqlevels(vcfs[[i]], pruning.mode="coarse") <- keepchr
+        
+        rows_after <- dim(vcfs[[1]])[1]
+        
+        # Print message in case of missmatch
+        if(rows_after != rows_before){
+            message(names(vcfs[1]), "\nSome variants in the .vcf file were discarded because did not have a chromosome ID maching the expected format:")
+            message("Found: ")
+            print(chr_before)
+            message("Expected: ") 
+            print(keepchr)
+            message("Variants discarded: ", rows_before-rows_after, " out of ", rows_before)
+        }
     }
     return(vcfs)
 }

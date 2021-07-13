@@ -70,7 +70,8 @@ applyTMB <- function(inputForTMB, assembly){
     }
 
     ## Write results in a table
-    TMBs_matrix <- as.data.frame(matrix(unlist(TMBs), ncol=6, byrow = TRUE))
+    TMBs_matrix <- as.data.frame(matrix(unlist(TMBs), ncol=6, byrow = TRUE), stringsAsFactors=TRUE)
+    #TMBs_matrix <- as.data.frame(matrix(unlist(TMBs), ncol=6, byrow = TRUE))
     colnames(TMBs_matrix) <- c("Sample",
                                "Design",
                                "Filter",

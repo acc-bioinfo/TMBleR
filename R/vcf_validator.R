@@ -445,6 +445,7 @@ parseInfo <- function(text){
                                    var[[1]][2], " cannot be handled by TMBleR", sep=""))
     }
   }
-  
+
+
   return(list(warnings=warnings,errors=errors))
 }
