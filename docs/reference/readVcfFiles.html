@@ -196,7 +196,24 @@ If no name is provided, the .vcf file name will be used.</p></td>
 
 <span class='co'># Read in the files</span>
 <span class='va'>vcfs</span> <span class='op'>&lt;-</span> <span class='fu'>readVcfFiles</span><span class='op'>(</span>vcfFiles <span class='op'>=</span> <span class='va'>vcf_files</span>, assembly <span class='op'>=</span> <span class='st'>"hg19"</span><span class='op'>)</span>
-
+</div><div class='output co'>#&gt; <span class='message'>Validate VCF input:</span></div><div class='output co'>#&gt; $Horizon5
+#&gt; $Horizon5$warnings
+#&gt; [1] "line 141: The VCF file contains 2 samples. Only the first (1_20170317_01_i01_0_horizon_5) will be used"            
+#&gt; [2] "line 142: AF is described both in FORMAT and in INFO of this and possibly other variants. FORMAT's AF will be used"
+#&gt; 
+#&gt; $Horizon5$errors
+#&gt; NULL
+#&gt; 
+#&gt; 
+#&gt; $HorizonFFPEmild
+#&gt; $HorizonFFPEmild$warnings
+#&gt; [1] "line 141: The VCF file contains 2 samples. Only the first (2_20170317_01_i01_0_horizon_ffpe_mild) will be used"    
+#&gt; [2] "line 142: AF is described both in FORMAT and in INFO of this and possibly other variants. FORMAT's AF will be used"
+#&gt; 
+#&gt; $HorizonFFPEmild$errors
+#&gt; NULL
+#&gt; 
+#&gt; </div><div class='output co'>#&gt; <span class='message'>Warnings and Errors exported to 'validator_check' variable</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

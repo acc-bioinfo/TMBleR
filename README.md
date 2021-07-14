@@ -65,9 +65,9 @@ Prerequisites. TMBleR requires the following dependencies to be installed on you
 Download the package with the git clone command:
 
 ```bash
-git clone git@github.com:acc-bioinfo/TMBleR.git
+git clone https://github.com/acc-bioinfo/TMBleR.git
 # full all the large files
-git lfs pull
+git -C TMBleR lfs pull
 ```
 
 Initiate R and install the R package using devtools (devtools needs to be installed as well)

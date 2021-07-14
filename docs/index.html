@@ -115,7 +115,7 @@
   <div class="contents col-md-9">
 
 <p style="text-align: center;">
-<img src="logo.svg" width="100"></p>
+<img src="logo.svg" width="150"></p>
 <div id="tumor-mutational-burden-tmb-quantification" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tumor-mutational-burden-tmb-quantification" class="anchor"></a>Tumor Mutational Burden (TMB) quantification</h1></div>
@@ -157,6 +157,7 @@ docker run \
     -v $(pwd)/workdir \
     aguida/tmbler:latest</code></pre>
 <p>This will run a docker instance of TMBleR mounting your current directory into <code>/workdir</code> within the container, and opening port 8787 on your host machine, so that you can access RStudio interface through the browser by visiting <a href="http://localhost:8787" class="uri">http://localhost:8787</a> (username: your user, password: “helloworld”)</p>
+<p><strong>Note:</strong> By default the docker container will be initialized in the folder <code>/home/&lt;yourusername</code>. Use the Rstudio file manager to open <code>/workdir</code> or any other mounted folder of your choice.</p>
 </div>
 <div id="install-tmbler-as-an-r-package" class="section level2">
 <h2 class="hasAnchor">
@@ -169,9 +170,9 @@ docker run \
 </li>
 </ul>
 <p>Download the package with the git clone command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:acc-bioinfo/TMBleR.git</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/acc-bioinfo/TMBleR.git</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># full all the large files</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> -C TMBleR lfs pull</span></code></pre></div>
 <p>Initiate R and install the R package using devtools (devtools needs to be installed as well)</p>
 <pre class="{r}"><code><a href="https://devtools.r-lib.org/">library("devtools")
 devtools::install("TMBleR")</a></code></pre>

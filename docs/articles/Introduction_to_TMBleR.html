@@ -112,7 +112,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>An introduction to TMBleR</h1>
             
-            <h4 class="date">2021-07-12</h4>
+            <h4 class="date">2021-07-14</h4>
       
       
       <div class="hidden name"><code>Introduction_to_TMBleR.Rmd</code></div>
@@ -200,7 +200,25 @@ text-align: justify}
 <span class="va">vcf_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">vcf_files</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="va">x</span>, package <span class="op">=</span> <span class="st">"TMBleR"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># read in the files -------------------------------------------</span>
-<span class="va">vcfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readVcfFiles.html">readVcfFiles</a></span><span class="op">(</span>vcfFiles <span class="op">=</span> <span class="va">vcf_files</span>, assembly <span class="op">=</span> <span class="va">genome_assembly</span><span class="op">)</span></code></pre></div>
+<span class="va">vcfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readVcfFiles.html">readVcfFiles</a></span><span class="op">(</span>vcfFiles <span class="op">=</span> <span class="va">vcf_files</span>, assembly <span class="op">=</span> <span class="va">genome_assembly</span><span class="op">)</span>
+<span class="co">#&gt; Validate VCF input:</span>
+<span class="co">#&gt; $Horizon5</span>
+<span class="co">#&gt; $Horizon5$warnings</span>
+<span class="co">#&gt; [1] "line 141: The VCF file contains 2 samples. Only the first (1_20170317_01_i01_0_horizon_5) will be used"            </span>
+<span class="co">#&gt; [2] "line 142: AF is described both in FORMAT and in INFO of this and possibly other variants. FORMAT's AF will be used"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Horizon5$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $HorizonFFPEmild</span>
+<span class="co">#&gt; $HorizonFFPEmild$warnings</span>
+<span class="co">#&gt; [1] "line 141: The VCF file contains 2 samples. Only the first (2_20170317_01_i01_0_horizon_ffpe_mild) will be used"    </span>
+<span class="co">#&gt; [2] "line 142: AF is described both in FORMAT and in INFO of this and possibly other variants. FORMAT's AF will be used"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $HorizonFFPEmild$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; Warnings and Errors exported to 'validator_check' variable</span></code></pre></div>
 </div>
 <div id="panel-design" class="section level4">
 <h4 class="hasAnchor">
@@ -392,8 +410,8 @@ text-align: justify}
 
 <span class="co"># Print results in table format</span>
 <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">TMB_res</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-e4a81950b21206013785" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e4a81950b21206013785">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild"],["ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMutsNosynonymous","vaf=0NoCancerMutsNosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05","vaf=0.05","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMutsNosynonymous","vaf=0.05NoCancerMutsNosynonymous","vaf=0","vaf=0"],[1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301],[189,182,98,97,104,105,45,84,78,164,73,149,41,76,203,198],[101.54,97.78,52.65,52.11,55.87,56.41,24.18,45.13,41.91,88.11,39.22,80.05,22.03,40.83,109.06,106.38]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The TMB estimate results can be preview in different ways:</p>
+<div id="htmlwidget-cfcaa82fb240407bd353" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfcaa82fb240407bd353">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild","Horizon5","HorizonFFPEmild"],["ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs","ExamplePanel_GeneIDs"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMutsNosynonymous","vaf=0NoCancerMutsNosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05Nosynonymous","vaf=0.05","vaf=0.05","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMuts","vaf=0.05NoCancerMutsNosynonymous","vaf=0.05NoCancerMutsNosynonymous","vaf=0","vaf=0"],[1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301,1.861301],[189,182,98,97,104,105,45,84,78,164,73,149,41,76,203,198],[101.54,97.78,52.65,52.11,55.87,56.41,24.18,45.13,41.91,88.11,39.22,80.05,22.03,40.83,109.06,106.38]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The TMB estimate results can be preview in different ways:</p>
 <ul>
 <li>Classical barplot</li>
 </ul>
@@ -460,7 +478,68 @@ text-align: justify}
 <span class="op">)</span>
 
 <span class="co"># Read vcf files and put in a list</span>
-<span class="va">ExampleWESvcfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readVcfFiles.html">readVcfFiles</a></span><span class="op">(</span>vcfFiles<span class="op">=</span><span class="va">vcf_files</span>, <span class="va">genome_assembly</span><span class="op">)</span></code></pre></div>
+<span class="va">ExampleWESvcfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readVcfFiles.html">readVcfFiles</a></span><span class="op">(</span>vcfFiles<span class="op">=</span><span class="va">vcf_files</span>, <span class="va">genome_assembly</span><span class="op">)</span>
+<span class="co">#&gt; Validate VCF input:</span>
+<span class="co">#&gt; $Pat02</span>
+<span class="co">#&gt; $Pat02$warnings</span>
+<span class="co">#&gt; [1] "line 90: The VCF file contains 2 samples. Only the first (pat02) will be used"             </span>
+<span class="co">#&gt; [2] "line 91: AF is neither described in FORMAT nor in INFO of this and possibly other variants"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat02$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat03</span>
+<span class="co">#&gt; $Pat03$warnings</span>
+<span class="co">#&gt; [1] "line 90: The VCF file contains 2 samples. Only the first (pat03) will be used"             </span>
+<span class="co">#&gt; [2] "line 91: AF is neither described in FORMAT nor in INFO of this and possibly other variants"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat03$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat04</span>
+<span class="co">#&gt; $Pat04$warnings</span>
+<span class="co">#&gt; [1] "line 90: The VCF file contains 2 samples. Only the first (pat04) will be used"             </span>
+<span class="co">#&gt; [2] "line 91: AF is neither described in FORMAT nor in INFO of this and possibly other variants"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat04$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat06</span>
+<span class="co">#&gt; $Pat06$warnings</span>
+<span class="co">#&gt; [1] "line 90: The VCF file contains 2 samples. Only the first (pat06) will be used"             </span>
+<span class="co">#&gt; [2] "line 91: AF is neither described in FORMAT nor in INFO of this and possibly other variants"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $Pat06$errors</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; Warnings and Errors exported to 'validator_check' variable</span>
+<span class="co">#&gt; Pat02</span>
+<span class="co">#&gt; Some variants in the .vcf file were discarded because did not have a chromosome ID maching the expected format:</span>
+<span class="co">#&gt; Found:</span>
+<span class="co">#&gt;  [1] "1"          "2"          "3"          "4"          "5"         </span>
+<span class="co">#&gt;  [6] "6"          "7"          "8"          "9"          "10"        </span>
+<span class="co">#&gt; [11] "11"         "12"         "13"         "14"         "15"        </span>
+<span class="co">#&gt; [16] "16"         "17"         "18"         "19"         "20"        </span>
+<span class="co">#&gt; [21] "21"         "22"         "GL000191.1" "GL000192.1" "GL000193.1"</span>
+<span class="co">#&gt; [26] "GL000194.1" "GL000195.1" "GL000196.1" "GL000197.1" "GL000198.1"</span>
+<span class="co">#&gt; [31] "GL000199.1" "GL000200.1" "GL000201.1" "GL000202.1" "GL000203.1"</span>
+<span class="co">#&gt; [36] "GL000204.1" "GL000205.1" "GL000206.1" "GL000207.1" "GL000208.1"</span>
+<span class="co">#&gt; [41] "GL000209.1" "GL000210.1" "GL000211.1" "GL000212.1" "GL000213.1"</span>
+<span class="co">#&gt; [46] "GL000214.1" "GL000215.1" "GL000216.1" "GL000217.1" "GL000218.1"</span>
+<span class="co">#&gt; [51] "GL000219.1" "GL000220.1" "GL000221.1" "GL000222.1" "GL000223.1"</span>
+<span class="co">#&gt; [56] "GL000224.1" "GL000225.1" "GL000226.1" "GL000227.1" "GL000228.1"</span>
+<span class="co">#&gt; [61] "GL000229.1" "GL000230.1" "GL000231.1" "GL000232.1" "GL000233.1"</span>
+<span class="co">#&gt; [66] "GL000234.1" "GL000235.1" "GL000236.1" "GL000237.1" "GL000238.1"</span>
+<span class="co">#&gt; [71] "GL000239.1" "GL000240.1" "GL000241.1" "GL000242.1" "GL000243.1"</span>
+<span class="co">#&gt; [76] "GL000244.1" "GL000245.1" "GL000246.1" "GL000247.1" "GL000248.1"</span>
+<span class="co">#&gt; [81] "GL000249.1" "MT"         "X"          "Y"</span>
+<span class="co">#&gt; Expected:</span>
+<span class="co">#&gt;  [1] "chr1"  "chr2"  "chr3"  "chr4"  "chr5"  "chr6"  "chr7"  "chr8"  "chr9" </span>
+<span class="co">#&gt; [10] "chr10" "chr11" "chr12" "chr13" "chr14" "chr15" "chr16" "chr17" "chr18"</span>
+<span class="co">#&gt; [19] "chr19" "chr20" "chr21" "chr22" "chrX"  "chrY"</span>
+<span class="co">#&gt; Variants discarded: 5 out of 378</span></code></pre></div>
 </div>
 <div id="wes-and-gene-panel-design" class="section level4">
 <h4 class="hasAnchor">
@@ -668,8 +747,8 @@ text-align: justify}
 
 <span class="co"># Preview</span>
 <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">TMB_res_df</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-3c0cf9fedd6caf688c69" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3c0cf9fedd6caf688c69">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06"],["SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","WES","WES","WES","WES"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous"],[2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,46.401091,46.401091,46.401091,46.401091],[18,29,26,12,15,19,21,9,9,19,12,7,9,12,11,5,203,332,316,136],[6.6,10.63,9.53,4.4,5.5,6.97,7.7,3.3,2.94,6.2,3.91,2.28,2.94,3.91,3.59,1.63,4.37,7.16,6.81,2.93]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The same bar plot as before can now be printed all together into one single plot calling the very same fuction.</p>
+<div id="htmlwidget-3f9fb3fea572ffe1b9ed" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3f9fb3fea572ffe1b9ed">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06","Pat02","Pat03","Pat04","Pat06"],["SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","SimulatedPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","MSKPanel","WES","WES","WES","WES"],["vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NoCancerMuts","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0NosynonymousNoframeshiftNononsense","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous","vaf=0Nosynonymous"],[2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,2.727206,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,3.066137,46.401091,46.401091,46.401091,46.401091],[18,29,26,12,15,19,21,9,9,19,12,7,9,12,11,5,203,332,316,136],[6.6,10.63,9.53,4.4,5.5,6.97,7.7,3.3,2.94,6.2,3.91,2.28,2.94,3.91,3.59,1.63,4.37,7.16,6.81,2.93]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample<\/th>\n      <th>Design<\/th>\n      <th>Filter<\/th>\n      <th>Sequencing_Size<\/th>\n      <th>Tot_Number_Mutations<\/th>\n      <th>TMB_per_Mb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The same bar plot as before can now be printed all together into one single plot calling the very same fuction.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotTMB.html">plotTMB</a></span><span class="op">(</span><span class="va">TMB_res_df</span><span class="op">)</span></code></pre></div>
 <p><img src="Introduction_to_TMBleR_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
